@@ -7,13 +7,6 @@ const Index = () => {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto space-y-8">
-        <section className="space-y-4">
-          <h1 className="text-4xl font-bold text-primary">Hello, I'm [Your Name]</h1>
-          <p className="text-lg text-gray-600">
-            Welcome to my personal space where I share my journey, interests, and experiences.
-          </p>
-        </section>
-
         <section className="grid gap-6">
           <Card>
             <CardHeader>
