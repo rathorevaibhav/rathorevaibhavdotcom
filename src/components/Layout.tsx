@@ -33,7 +33,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="top" className="w-full h-[100dvh]" hideCloseButton>
+                <SheetContent side="top" className="w-full h-[100dvh] [&>[data-state=open]>.absolute]:hidden">
                   <div className="flex justify-end mb-8">
                     <SheetTrigger asChild>
                       <Button variant="ghost" size="icon">
