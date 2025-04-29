@@ -11,7 +11,7 @@ import { Search } from "lucide-react";
 
 const Books = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 10;
 
@@ -22,7 +22,7 @@ const Books = () => {
   const filteredBooks = mockBooks.filter(book => {
     const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           book.author.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory ? book.category === selectedCategory : true;
+    const matchesCategory = selectedCategory === "all" ? true : book.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
@@ -65,7 +65,7 @@ const Books = () => {
               <SelectValue placeholder="Filter by category" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Categories</SelectItem>
+              <SelectItem value="all">All Categories</SelectItem>
               {categories.map((category) => (
                 <SelectItem key={category} value={category}>
                   {category}
