@@ -7,4 +7,5 @@ export interface Book {
   category: string;
   rating: number;
   review: string;
+  readDate?: string;
 }

@@ -98,7 +98,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </nav>
       </header>
-      <main className="flex-1 p-8">
+      <main className="flex-1 py-8 px-4 sm:px-6 lg:px-8">
         {children}
       </main>
       <Footer />

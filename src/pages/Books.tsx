@@ -15,8 +15,8 @@ const Books = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 10;
 
-  // Get all unique categories from books
-  const categories = [...new Set(mockBooks.map(book => book.category))];
+  // Get all unique categories from books and sort alphabetically
+  const categories = [...new Set(mockBooks.map(book => book.category))].sort();
 
   // Filter books based on search query and category
   const filteredBooks = mockBooks.filter(book => {
@@ -37,7 +37,7 @@ const Books = () => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
         {/* Search and filter section */}
@@ -75,9 +75,9 @@ const Books = () => {
           </Select>
         </div>
 
-        {/* Books grid */}
+        {/* Books grid - updated for 4 items per row on desktop, 2 on mobile */}
         {currentBooks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
             {currentBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}

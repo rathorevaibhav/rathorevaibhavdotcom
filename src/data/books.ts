@@ -4,110 +4,102 @@ import { Book } from "@/lib/types";
 export const mockBooks: Book[] = [
   {
     id: 1,
-    title: "Sapiens: A Brief History of Humankind",
-    author: "Yuval Noah Harari",
-    coverImage: "https://m.media-amazon.com/images/I/71N6Qrw869L._SL1500_.jpg",
-    category: "History",
+    title: "Becoming a Technical Leader",
+    author: "Gerald Weinberg",
+    coverImage: "https://m.media-amazon.com/images/I/71JIB8tcILL._SL1500_.jpg",
+    category: "Leadership",
     rating: 5,
-    review: "Sapiens is a captivating journey through the entirety of human history. Harari manages to distill complex topics into engaging narrative, making this book both educational and entertaining.\n\nWhat I found most fascinating was Harari's perspective on how myths and shared beliefs have enabled humans to cooperate at unprecedented scales. His analysis of the cognitive revolution and its impact on our species' dominance is thought-provoking.\n\nThe book challenged many of my preconceptions about human history and society. I especially appreciated how Harari questions whether progress has always led to improvement in quality of life. This book has fundamentally changed how I view human civilization and our place in the world."
+    readDate: "January 2023",
+    review: "Gerald Weinberg's 'Becoming a Technical Leader' is an essential read for any software developer looking to grow beyond purely technical skills. What makes this book stand out is Weinberg's focus on the human aspects of technical leadership rather than just management techniques.\n\nI found his MOI (Motivation, Organization, and Innovation) model particularly insightful, as it provides a practical framework for thinking about the different dimensions of leadership. Weinberg's personal anecdotes and case studies bring theoretical concepts to life, making the book both educational and engaging.\n\nThe book challenged many of my preconceptions about what technical leadership means. I especially appreciated Weinberg's emphasis on problem-solving leadership rather than authoritarian approaches. This perspective has significantly influenced how I approach team interactions and technical decision-making."
   },
   {
     id: 2,
-    title: "Atomic Habits",
-    author: "James Clear",
-    coverImage: "https://m.media-amazon.com/images/I/81wgcld4wxL._SL1500_.jpg",
-    category: "Self-help",
-    rating: 4,
-    review: "Atomic Habits provides a practical framework for understanding how habits form and how to reshape them effectively. James Clear's 1% improvement philosophy resonated with me deeply as it emphasizes consistency over intensity.\n\nThe book's clear structure and actionable advice make complex behavioral science accessible. I've successfully implemented several of Clear's strategies, particularly habit stacking and environment design, with noticeable results in my daily routines.\n\nWhat sets this book apart is how it balances theory with application. Rather than making vague promises of transformation, Clear offers specific techniques backed by research and real-world examples. This book has become my go-to reference whenever I'm trying to build new habits or break old ones."
+    title: "The Goal",
+    author: "Eliyahu M. Goldratt",
+    coverImage: "https://m.media-amazon.com/images/I/71JDD+3sp9L._SL1500_.jpg",
+    category: "Business",
+    rating: 5,
+    readDate: "March 2022",
+    review: "Goldratt's 'The Goal' revolutionized my understanding of process optimization and operational efficiency. Written as a fast-paced novel, the book follows plant manager Alex Rogo as he fights to save his manufacturing plant from closure, guided by the enigmatic character Jonah.\n\nWhat makes this book remarkable is how it presents complex operational theories through an engaging narrative. The Theory of Constraints introduced in the book offers a powerful lens for identifying and addressing bottlenecks in any process, not just in manufacturing.\n\nI've successfully applied many of the principles from this book to software development processes, particularly the ideas around identifying system constraints and subordinating everything else to address them. This book has fundamentally changed how I approach process improvement and team productivity."
   },
   {
     id: 3,
-    title: "The Psychology of Money",
-    author: "Morgan Housel",
-    coverImage: "https://m.media-amazon.com/images/I/71TRUbzcvaL._SL1500_.jpg",
-    category: "Finance",
-    rating: 5,
-    review: "The Psychology of Money offers a refreshing perspective on how we think about and interact with money. What makes this book exceptional is Housel's ability to distill complex financial concepts into memorable stories and insights.\n\nI was particularly struck by the idea that success with money isn't about what you know, but about how you behave. Housel's emphasis on the role of luck, risk management, and personal history in shaping financial decisions challenges the conventional wisdom that financial success is primarily about knowledge or skill.\n\nThe book's collection of short, powerful chapters makes it both accessible and profound. I've found myself regularly returning to certain lessons, especially the concepts of 'reasonable' rather than 'rational' financial decisions and the importance of having 'room for error' in financial planning."
+    title: "It's Not Luck",
+    author: "Eliyahu M. Goldratt",
+    coverImage: "https://m.media-amazon.com/images/I/51t18AIRznL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    category: "Business",
+    rating: 4,
+    readDate: "May 2022",
+    review: "As a sequel to 'The Goal', 'It's Not Luck' extends Goldratt's Theory of Constraints to broader business problems and strategic thinking. The book follows Alex Rogo as he faces new challenges in a corporate environment, applying logical thinking processes to solve complex business problems.\n\nWhat I found most valuable was Goldratt's introduction of the Thinking Processes, especially the Current Reality Tree and Future Reality Tree as tools for analyzing problems and crafting solutions. These frameworks provide a structured approach to breaking down complex situations into manageable components.\n\nWhile not quite as revolutionary as 'The Goal', this book offers practical tools for decision-making and conflict resolution that I've found useful in my professional life. Goldratt's emphasis on win-win solutions and looking beyond apparent conflicts has influenced how I approach difficult business situations."
   },
   {
     id: 4,
-    title: "Educated",
-    author: "Tara Westover",
-    coverImage: "https://m.media-amazon.com/images/I/81NwOj14S6L._SL1500_.jpg",
-    category: "Memoir",
-    rating: 5,
-    review: "Educated is a remarkable memoir that chronicles Tara Westover's journey from an isolated upbringing in rural Idaho to earning a PhD from Cambridge University. The book is a powerful testament to self-invention, the pursuit of knowledge, and the ways in which education can open doors to new worlds and understandings.\n\nWhat struck me most about Westover's story was her resilience and determination in the face of extraordinary obstacles. The author's willingness to question her upbringing and forge her own path, despite the high personal cost, is both inspiring and thought-provoking.\n\nBeyond the personal narrative, this book raises important questions about family loyalty, mental health, and the nature of education itself. Westover's nuanced portrayal of her family members—depicting them as complex individuals rather than villains—adds depth and emotional resonance to her extraordinary story."
+    title: "Critical Chain",
+    author: "Eliyahu M. Goldratt",
+    coverImage: "https://m.media-amazon.com/images/I/61CPzL8FCTL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg",
+    category: "Project Management",
+    rating: 4,
+    readDate: "July 2022",
+    review: "In 'Critical Chain', Goldratt applies his Theory of Constraints to project management, challenging traditional approaches and offering a more effective alternative. Like his other books, this one uses a narrative format to present sophisticated concepts in an accessible way.\n\nThe book's central insight about how safety margins in individual tasks get wasted and how they should instead be pooled at the project level was eye-opening. Goldratt's analysis of why projects typically run late despite generous time estimates resonated deeply with my experience in software development.\n\nI've implemented several ideas from Critical Chain in my team's workflow, particularly around resource management and buffer planning. The concept of focusing on the critical chain rather than the critical path has helped us deliver more predictably and manage uncertainty better."
   },
   {
     id: 5,
-    title: "The Three-Body Problem",
-    author: "Liu Cixin",
-    coverImage: "https://m.media-amazon.com/images/I/91kPb2KqIUL._SL1500_.jpg",
-    category: "Science Fiction",
+    title: "Delivering Happiness",
+    author: "Tony Hsieh",
+    coverImage: "https://m.media-amazon.com/images/I/71QKQ9oKqJL._SL1500_.jpg",
+    category: "Business",
     rating: 4,
-    review: "The Three-Body Problem blends hard science fiction with historical drama in a way I've rarely encountered. Liu Cixin creates a narrative that spans from China's Cultural Revolution to a potential future where humanity faces an existential threat from an alien civilization.\n\nWhat impressed me most was the novel's ambitious scope and the author's ability to make complex scientific concepts accessible without oversimplification. The exploration of the three-body problem in physics becomes both a literal plot point and a metaphor for unpredictability and chaos.\n\nThe book's perspective is refreshingly non-Western, offering insights into Chinese history, culture, and scientific thought. While I occasionally found some characters more symbolic than fully developed, the novel's breathtaking imagination and intellectual depth more than compensate."
+    readDate: "November 2022",
+    review: "Tony Hsieh's 'Delivering Happiness' chronicles the evolution of Zappos and its unique culture-centric business approach. What makes this book special is Hsieh's candid sharing of both successes and failures, providing an honest look at entrepreneurship and company building.\n\nI was particularly struck by Zappos' commitment to customer service as a core value, investing in it as a long-term strategy rather than seeing it as a cost center. Hsieh's insights on how culture can be a company's greatest competitive advantage have influenced my thinking about team building and organizational design.\n\nBeyond business lessons, the book offers a thoughtful exploration of what creates lasting happiness and fulfillment, both personally and professionally. Hsieh's journey toward understanding purpose beyond profits provides valuable perspective for anyone thinking about their career trajectory and what success really means."
   },
   {
     id: 6,
-    title: "Thinking, Fast and Slow",
-    author: "Daniel Kahneman",
-    coverImage: "https://m.media-amazon.com/images/I/61fdrEuPJwL._SL1200_.jpg",
-    category: "Psychology",
+    title: "Jonathan Livingston Seagull",
+    author: "Richard Bach",
+    coverImage: "https://m.media-amazon.com/images/I/81QvL-3QUqL._SL1500_.jpg",
+    category: "Philosophy",
     rating: 5,
-    review: "Thinking, Fast and Slow is a fascinating exploration of the two systems that drive how we think—System 1, which is fast, intuitive, and emotional; and System 2, which is slower, more deliberative, and more logical. Kahneman's decades of research into cognitive biases and heuristics are distilled into accessible and engaging prose.\n\nI was particularly struck by the discussions of overconfidence and our tendency to believe we understand the past and can predict the future. The book has made me more aware of my own thinking processes and cognitive biases, causing me to question assumptions I would previously have accepted without thought.\n\nWhile dense with information, the book rewards careful reading with profound insights about decision-making in both personal and professional contexts. It has fundamentally changed how I evaluate information and make judgments."
+    readDate: "February 2021",
+    review: "Richard Bach's novella 'Jonathan Livingston Seagull' may be brief, but its impact on my thinking has been profound. Through the story of a seagull who yearns to perfect the art of flight rather than merely foraging for food, Bach crafts a beautiful allegory about pursuing excellence and transcending limitations.\n\nWhat resonated most deeply with me was the book's exploration of how pursuing one's passion often means breaking from convention and facing isolation. Jonathan's journey from outcast to teacher illustrates how mastery not only fulfills the individual but eventually benefits the broader community.\n\nDespite its simplicity, this book contains layers of meaning about self-discovery, perseverance, and enlightenment. I find myself returning to its messages regularly when facing challenges or feeling pressured to conform rather than excel. Bach's prose is elegantly spare, allowing the powerful metaphors to shine through."
   },
   {
     id: 7,
-    title: "Becoming",
-    author: "Michelle Obama",
-    coverImage: "https://m.media-amazon.com/images/I/91YjnjX+B5L._SL1500_.jpg",
-    category: "Memoir",
-    rating: 4,
-    review: "Becoming offers an intimate and inspiring look at Michelle Obama's life journey from her childhood in Chicago to her years in the White House. What I appreciated most about this memoir was the author's candor and vulnerability in sharing both her triumphs and struggles.\n\nObama writes with warmth and clarity about her experiences balancing career ambitions with family responsibilities, navigating racial and gender expectations, and finding her voice and purpose in the often harsh spotlight of public life. Her reflections on identity, belonging, and service resonated deeply with me.\n\nBeyond the political aspects, this is fundamentally a book about personal growth and staying true to one's values even in challenging circumstances. Obama's story is both relatable and aspirational, providing insights that extend far beyond her unique position in American history."
+    title: "Mindset",
+    author: "Carol S. Dweck",
+    coverImage: "https://m.media-amazon.com/images/I/61bDwfLudLL._SL1500_.jpg",
+    category: "Psychology",
+    rating: 5,
+    readDate: "September 2022",
+    review: "Carol Dweck's 'Mindset' presents a deceptively simple but powerful idea that has fundamentally changed how I view ability, talent, and personal development. The distinction between fixed and growth mindsets provides a compelling framework for understanding how our beliefs about our capabilities shape our actions and outcomes.\n\nI found the research-backed examples across various domains—education, sports, business, relationships—particularly convincing. Dweck thoroughly demonstrates how a growth mindset leads to greater resilience, learning, and ultimately achievement.\n\nSince reading this book, I've become much more conscious of my language and thought patterns, especially in response to challenges and setbacks. The concept of 'not yet' versus 'failure' has been particularly transformative in how I approach learning new skills and facing difficult problems. This is one of those rare books that continues to influence my thinking daily, long after I've finished reading it."
   },
   {
     id: 8,
-    title: "The Innovators",
-    author: "Walter Isaacson",
-    coverImage: "https://m.media-amazon.com/images/I/71abepeh4jL._SL1500_.jpg",
-    category: "Technology",
+    title: "Go Kiss the World",
+    author: "Subroto Bagchi",
+    coverImage: "https://m.media-amazon.com/images/I/810J41PcpwL._SL1500_.jpg",
+    category: "Memoir",
     rating: 4,
-    review: "The Innovators traces the history of the digital revolution, highlighting how collaboration and teamwork have been just as crucial as individual genius in technological advancement. Isaacson expertly weaves together stories of pioneers from Ada Lovelace to the creators of the internet and beyond.\n\nWhat I found most valuable about this book was how it demystifies innovation, showing it as the result of incremental advances, creative collaboration, and the right cultural and institutional support rather than just brilliant insights from lone geniuses. The narrative challenges the simplistic hero worship that often accompanies stories of technological progress.\n\nIsaacson's emphasis on the importance of both technical and artistic thinking—the intersection of humanities and sciences—provides a compelling argument for interdisciplinary approaches to education and problem-solving that feels increasingly relevant today."
+    readDate: "April 2023",
+    review: "Subroto Bagchi's memoir 'Go Kiss the World' offers a compelling journey from a small town in Orissa to becoming a successful entrepreneur and co-founder of Mindtree. What makes this book special is how Bagchi weaves personal anecdotes with professional insights, creating a narrative that is both emotionally resonant and practically instructive.\n\nI was particularly moved by the title's origin—his blind mother's advice to 'go kiss the world' rather than see her face before he left for work abroad. This metaphor for embracing life's experiences fully runs throughout the book and provides a powerful philosophy for approaching one's career and life.\n\nBagchi's reflections on leadership, integrity, and building a values-driven organization offer valuable lessons that transcend cultural and industry boundaries. His emphasis on professional sustainability rather than mere success has influenced how I think about my own career development and the kind of legacy I want to build."
   },
   {
     id: 9,
-    title: "Born a Crime",
-    author: "Trevor Noah",
-    coverImage: "https://m.media-amazon.com/images/I/81FelrkN48L._SL1500_.jpg",
-    category: "Memoir",
+    title: "Everybody Matters",
+    author: "Bob Chapman",
+    coverImage: "https://m.media-amazon.com/images/I/81LOSE+hlFL._SL1500_.jpg",
+    category: "Leadership",
     rating: 5,
-    review: "Born a Crime is an extraordinary coming-of-age story set against the backdrop of South Africa's apartheid system and its aftermath. Trevor Noah blends humor and poignancy to tell a story that is simultaneously deeply personal and politically illuminating.\n\nWhat struck me most powerfully about this memoir was Noah's portrayal of his mother, whose determination, faith, and unconventional thinking shaped his worldview and enabled him to navigate complex racial and social hierarchies. Their relationship forms the emotional core of a book that deals with serious themes of poverty, domestic violence, and systemic racism.\n\nBeyond the personal narrative, Noah's experiences provide unique insights into South Africa's history and racial dynamics. His ability to find humor in difficult situations without minimizing their seriousness is remarkable, making this book both enlightening and genuinely entertaining."
+    readDate: "June 2023",
+    review: "Bob Chapman's 'Everybody Matters' presents a revolutionary approach to business leadership based on a simple yet profound premise: truly care for every person in your organization. What sets this book apart is that it's not just theoretical—it documents the actual transformation of Barry-Wehmiller under Chapman's leadership.\n\nI was particularly struck by Chapman's concept of 'truly human leadership' and how it manifests in practical policy decisions, from avoiding layoffs during economic downturns to measuring success by the way they touch the lives of people. The contrast with traditional management approaches is stark and compelling.\n\nThis book has profoundly influenced how I think about the purpose of business and my role as a leader. Chapman's assertion that leaders bear responsibility for the lives entrusted to them has caused me to reconsider many assumptions about workplace dynamics and organizational structure. The concrete examples of how this philosophy can be implemented make this more than just an inspiring read—it's a practical guide to creating a more humane workplace."
   },
   {
     id: 10,
-    title: "Dune",
-    author: "Frank Herbert",
-    coverImage: "https://m.media-amazon.com/images/I/8180Uhc4BuL._SL1500_.jpg",
-    category: "Science Fiction",
-    rating: 5,
-    review: "Dune is much more than a science fiction epic—it's a complex narrative weaving together politics, religion, ecology, and human evolution. Herbert's worldbuilding is unparalleled, creating a universe with depth and texture that feels authentic despite its fantastical elements.\n\nWhat makes this novel revolutionary is its engagement with ecological themes and resource scarcity, concerns that have only grown more relevant since its publication. The author's exploration of how environment shapes culture and society adds a layer of realism often missing from science fiction.\n\nThe book's psychological depth and philosophical richness reward multiple readings. Herbert's examination of messianic figures and the dangers of charismatic leadership feels especially prescient in today's political landscape. Despite being written decades ago, Dune continues to offer fresh insights with each return to its rich, textured universe."
-  },
-  {
-    id: 11,
-    title: "Quiet",
-    author: "Susan Cain",
-    coverImage: "https://m.media-amazon.com/images/I/71xvQrI2TbL._SL1500_.jpg",
-    category: "Psychology",
-    rating: 4,
-    review: "Quiet offers a thoughtful exploration of introversion in a culture that often celebrates extroversion. Cain's research-backed insights into the strengths of introverts and the power of quiet thought resonated deeply with me.\n\nThe book challenges prevailing notions about leadership and success, arguing persuasively that introverted qualities—deep thinking, careful observation, and focused work—are valuable but often undervalued assets. I found the historical analysis of how America shifted from a 'culture of character' to a 'culture of personality' particularly illuminating.\n\nAs someone who has often felt pressure to be more outgoing in professional settings, I appreciated Cain's practical advice for introverts navigating extrovert-focused environments while staying true to themselves. The book has helped me recognize and embrace my own quiet strengths."
-  },
-  {
-    id: 12,
-    title: "Bad Blood",
-    author: "John Carreyrou",
-    coverImage: "https://m.media-amazon.com/images/I/71rtUGhDrQL._SL1500_.jpg",
+    title: "E-Myth Revisited",
+    author: "Michael E. Gerber",
+    coverImage: "https://m.media-amazon.com/images/I/81iIlG2jFxL._SL1500_.jpg",
     category: "Business",
     rating: 5,
-    review: "Bad Blood reads like a thriller while exposing the shocking reality behind Theranos, the multibillion-dollar biotech startup founded by Elizabeth Holmes. Carreyrou's meticulous reporting reveals how ambition, deception, and Silicon Valley's culture of hype enabled a massive fraud.\n\nWhat makes this book exceptional is how it balances technical details with human drama. Carreyrou explains complex scientific and medical concepts clearly while also capturing the psychological dynamics that allowed the deception to continue for so long. The portraits of whistleblowers who risked their careers to expose the truth are particularly compelling.\n\nBeyond telling a fascinating story, Bad Blood raises important questions about innovation, ethics, and accountability in technology and healthcare. It serves as a cautionary tale about the dangers of prioritizing disruption and growth over rigorous science and ethical business practices."
+    readDate: "December 2022",
+    review: "Michael E. Gerber's 'The E-Myth Revisited' shattered many of my misconceptions about entrepreneurship and running a successful business. Through the narrative of a struggling bakery owner, Gerber illustrates the critical difference between working in your business and working on it.\n\nThe book's central insight—that most businesses fail because technically skilled people start businesses without understanding the distinction between being a technician, manager, and entrepreneur—was eye-opening. Gerber's framework for developing business systems that don't rely on the founder's constant presence offers a practical path toward building a sustainable enterprise.\n\nI've applied many concepts from this book, particularly the idea of creating systems and processes as if you were going to franchise your business. This approach has helped me develop more scalable, consistent operations even though I don't intend to franchise. Gerber's emphasis on creating a business that works for you rather than making yourself work for the business continues to guide my strategic decisions."
   }
 ];
