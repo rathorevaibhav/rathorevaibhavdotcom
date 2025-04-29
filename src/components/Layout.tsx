@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ExternalLink, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Footer } from './Footer';
 
 const menuItems = [
   { title: "Home", path: "/", external: false },
@@ -100,6 +101,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1 p-8">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
