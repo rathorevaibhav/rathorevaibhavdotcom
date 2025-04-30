@@ -1,43 +1,52 @@
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Layout } from "@/components/Layout";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BookCard } from "@/components/BookCard";
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 import { mockBooks } from "@/data/books";
 import { Book } from "@/lib/types";
 import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Books = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
-  const booksPerPage = 10;
+  const [selectedYear, setSelectedYear] = useState<string | null>(null);
 
   // Get all unique categories from books and sort alphabetically
   const categories = [...new Set(mockBooks.map(book => book.category))].sort();
+  
+  // Extract unique years from readDate and sort
+  const years = useMemo(() => {
+    const allYears = mockBooks
+      .filter(book => book.readDate)
+      .map(book => {
+        const match = book.readDate?.match(/\d{4}$/);
+        return match ? match[0] : null;
+      })
+      .filter(Boolean) as string[];
+    
+    return [...new Set(allYears)].sort((a, b) => Number(b) - Number(a)); // Sort descending (newest first)
+  }, []);
 
-  // Filter books based on search query and category
-  const filteredBooks = mockBooks.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          book.author.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "all" ? true : book.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
-
-  // Paginate books
-  const indexOfLastBook = currentPage * booksPerPage;
-  const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
-  const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
-
-  // Handle page change
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  // Filter books based on search query, category, and year
+  const filteredBooks = useMemo(() => {
+    return mockBooks.filter(book => {
+      const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                           book.author.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesCategory = selectedCategory === "all" ? true : book.category === selectedCategory;
+      const matchesYear = selectedYear 
+        ? book.readDate?.includes(selectedYear) 
+        : true;
+      
+      return matchesSearch && matchesCategory && matchesYear;
+    });
+  }, [searchQuery, selectedCategory, selectedYear]);
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
         {/* Search and filter section */}
@@ -49,7 +58,6 @@ const Books = () => {
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
-                setCurrentPage(1); // Reset to first page on new search
               }}
               className="pl-10"
             />
@@ -58,7 +66,6 @@ const Books = () => {
             value={selectedCategory}
             onValueChange={(value) => {
               setSelectedCategory(value);
-              setCurrentPage(1); // Reset to first page on new filter
             }}
           >
             <SelectTrigger className="w-full md:w-[200px]">
@@ -75,10 +82,10 @@ const Books = () => {
           </Select>
         </div>
 
-        {/* Books grid - updated for 4 items per row on desktop, 2 on mobile */}
-        {currentBooks.length > 0 ? (
+        {/* Books grid */}
+        {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
-            {currentBooks.map((book) => (
+            {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}
           </div>
@@ -88,37 +95,32 @@ const Books = () => {
           </div>
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <Pagination className="my-8">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious 
-                  onClick={() => paginate(Math.max(1, currentPage - 1))}
-                  className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"} 
-                />
-              </PaginationItem>
-              
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <PaginationItem key={page}>
-                  <PaginationLink
-                    isActive={page === currentPage}
-                    onClick={() => paginate(page)}
-                    className="cursor-pointer"
-                  >
-                    {page}
-                  </PaginationLink>
-                </PaginationItem>
+        {/* Year navigation */}
+        {years.length > 0 && (
+          <div className="mt-12 mb-4">
+            <h2 className="text-xl font-semibold mb-4">Browse by Year</h2>
+            <div className="flex flex-wrap gap-2">
+              {selectedYear && (
+                <Button 
+                  variant="outline" 
+                  onClick={() => setSelectedYear(null)}
+                  className="mb-2"
+                >
+                  All Years
+                </Button>
+              )}
+              {years.map((year) => (
+                <Button 
+                  key={year}
+                  variant={selectedYear === year ? "default" : "outline"}
+                  onClick={() => setSelectedYear(year === selectedYear ? null : year)}
+                  className="mb-2"
+                >
+                  {year}
+                </Button>
               ))}
-              
-              <PaginationItem>
-                <PaginationNext 
-                  onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
-                  className={currentPage === totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"} 
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+            </div>
+          </div>
         )}
       </div>
     </Layout>

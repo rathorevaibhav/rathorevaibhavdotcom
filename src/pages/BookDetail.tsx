@@ -26,7 +26,7 @@ const BookDetail = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-2 sm:px-4">
         <Link to="/books" className="inline-flex items-center text-primary hover:text-primary/80 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to all books
@@ -50,12 +50,12 @@ const BookDetail = () => {
             <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
             <p className="text-xl text-gray-700 mb-4">by {book.author}</p>
             
-            <div className="mb-2">
+            <div className="mb-4">
               <StarRating rating={book.rating} />
             </div>
             
             {book.readDate && (
-              <div className="flex items-center gap-1.5 text-sm text-gray-500 mb-6">
+              <div className="flex items-center gap-1.5 text-sm text-gray-500 mb-8">
                 <Calendar className="h-4 w-4" />
                 <span>Last read: {book.readDate}</span>
               </div>

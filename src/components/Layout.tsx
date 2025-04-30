@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ExternalLink, Menu, X } from 'lucide-react';
+import { ExternalLink, Menu } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Footer } from './Footer';
 
@@ -35,36 +34,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="top" className="w-full h-[100dvh] [&>[data-state=open]>.absolute]:hidden">
-                  <div className="flex justify-end mb-8">
-                    <SheetTrigger asChild>
-                      <Button variant="ghost" size="icon">
-                        <X className="h-6 w-6" />
-                      </Button>
-                    </SheetTrigger>
-                  </div>
-                  <div className="flex flex-col items-center gap-8">
+                <SheetContent side="top" className="w-full h-[100dvh]">
+                  <div className="flex flex-col items-center gap-8 pt-12">
                     {menuItems.map((item) => (
-                      <SheetTrigger asChild key={item.title}>
-                        {item.external ? (
-                          <a
-                            href={item.path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors flex items-center gap-2"
-                          >
-                            {item.title}
-                            <ExternalLink className="h-4 w-4" />
-                          </a>
-                        ) : (
-                          <Link
-                            to={item.path}
-                            className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors"
-                          >
-                            {item.title}
-                          </Link>
-                        )}
-                      </SheetTrigger>
+                      item.external ? (
+                        <a
+                          key={item.title}
+                          href={item.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors flex items-center gap-2"
+                        >
+                          {item.title}
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      ) : (
+                        <Link
+                          key={item.title}
+                          to={item.path}
+                          className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors"
+                        >
+                          {item.title}
+                        </Link>
+                      )
                     ))}
                   </div>
                 </SheetContent>
