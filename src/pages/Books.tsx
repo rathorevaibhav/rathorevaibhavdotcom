@@ -51,7 +51,7 @@ const Books = () => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto sm:px-6 xl:px-8">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
         {/* Search and filter section */}
@@ -98,7 +98,7 @@ const Books = () => {
                   className={`cursor-pointer text-xs ${
                     selectedYear === year 
                       ? "text-primary font-medium" 
-                      : "text-gray-200 hover:text-gray-400"
+                      : "text-gray-300 hover:text-gray-400"
                   }`}
                 >
                   {year}

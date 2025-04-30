@@ -26,7 +26,7 @@ const BookDetail = () => {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
         <Link to="/books" className="inline-flex items-center text-primary hover:text-primary/80 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to all books
@@ -36,9 +36,9 @@ const BookDetail = () => {
           <div className="md:col-span-1">
             <div className="aspect-[2/3] bg-gray-100 rounded-lg overflow-hidden">
               <img
-                src={book.coverImage}
+                src={book.coverImage} 
                 alt={`${book.title} cover`}
-                className="w-full h-full object-cover"
+                className="object-cover w-full h-full transition-transform hover:scale-105"
               />
             </div>
           </div>
