@@ -51,11 +51,11 @@ const Books = () => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
         {/* Search and filter section */}
-        <div className="flex flex-col md:flex-row gap-4 mb-8">
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
             <Input
@@ -87,6 +87,27 @@ const Books = () => {
           </Select>
         </div>
 
+        {/* Year filter */}
+        {years.length > 0 && (
+          <div className="mb-8">
+            <div className="flex flex-wrap gap-3">
+              {years.map((year) => (
+                <span 
+                  key={year}
+                  onClick={() => setSelectedYear(year === selectedYear ? null : year)}
+                  className={`cursor-pointer text-sm ${
+                    selectedYear === year 
+                      ? "text-primary font-medium" 
+                      : "text-gray-300 hover:text-gray-500"
+                  }`}
+                >
+                  {year}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Books grid */}
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
@@ -97,28 +118,6 @@ const Books = () => {
         ) : (
           <div className="text-center py-12 text-gray-500">
             No books found matching your search criteria.
-          </div>
-        )}
-
-        {/* Year navigation */}
-        {years.length > 0 && (
-          <div className="mt-12 mb-4">
-            <h2 className="text-xl font-semibold mb-4">Browse by Year</h2>
-            <div className="flex flex-wrap gap-4">
-              {years.map((year) => (
-                <span 
-                  key={year}
-                  onClick={() => setSelectedYear(year === selectedYear ? null : year)}
-                  className={`cursor-pointer text-lg ${
-                    selectedYear === year 
-                      ? "text-primary font-medium" 
-                      : "text-gray-500 hover:text-gray-700"
-                  }`}
-                >
-                  {year}
-                </span>
-              ))}
-            </div>
           </div>
         )}
       </div>
