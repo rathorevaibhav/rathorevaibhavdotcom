@@ -5,9 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BookCard } from "@/components/BookCard";
 import { mockBooks } from "@/data/books";
-import { Book } from "@/lib/types";
 import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const Books = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,6 +28,13 @@ const Books = () => {
     return [...new Set(allYears)].sort((a, b) => Number(b) - Number(a)); // Sort descending (newest first)
   }, []);
 
+  // Set latest year as default selected year if available
+  useMemo(() => {
+    if (years.length > 0 && !selectedYear) {
+      setSelectedYear(years[0]);
+    }
+  }, [years, selectedYear]);
+
   // Filter books based on search query, category, and year
   const filteredBooks = useMemo(() => {
     return mockBooks.filter(book => {
@@ -46,7 +51,7 @@ const Books = () => {
 
   return (
     <Layout>
-      <div className="max-w-7xl mx-auto px-2 sm:px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
         {/* Search and filter section */}
@@ -84,7 +89,7 @@ const Books = () => {
 
         {/* Books grid */}
         {filteredBooks.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
             {filteredBooks.map((book) => (
               <BookCard key={book.id} book={book} />
             ))}
@@ -99,25 +104,19 @@ const Books = () => {
         {years.length > 0 && (
           <div className="mt-12 mb-4">
             <h2 className="text-xl font-semibold mb-4">Browse by Year</h2>
-            <div className="flex flex-wrap gap-2">
-              {selectedYear && (
-                <Button 
-                  variant="outline" 
-                  onClick={() => setSelectedYear(null)}
-                  className="mb-2"
-                >
-                  All Years
-                </Button>
-              )}
+            <div className="flex flex-wrap gap-4">
               {years.map((year) => (
-                <Button 
+                <span 
                   key={year}
-                  variant={selectedYear === year ? "default" : "outline"}
                   onClick={() => setSelectedYear(year === selectedYear ? null : year)}
-                  className="mb-2"
+                  className={`cursor-pointer text-lg ${
+                    selectedYear === year 
+                      ? "text-primary font-medium" 
+                      : "text-gray-500 hover:text-gray-700"
+                  }`}
                 >
                   {year}
-                </Button>
+                </span>
               ))}
             </div>
           </div>
