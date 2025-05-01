@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Nunito", "sans-serif"],
       },
       colors: {
         primary: "#6E59A5",

@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Footer } from './Footer';
 
@@ -32,16 +32,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {isMobile ? (
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="relative z-50 flex items-center justify-center">
-                    <div className="relative w-6 h-6 flex items-center justify-center">
-                      {/* Animated hamburger to X icon */}
-                      <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-3' : 'top-1.5'}`}></span>
-                      <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100 top-3'}`}></span>
-                      <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-3' : 'top-4.5'}`}></span>
-                    </div>
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="top" className="w-full h-[100dvh]">
+                  <div className="absolute top-4 right-4">
+                    <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(false)}>
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </div>
                   <div className="flex flex-col items-center gap-8 pt-12">
                     {menuItems.map((item) => (
                       item.external ? (
