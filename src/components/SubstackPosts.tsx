@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface Post {
   title: string;
   url: string;
   date: string;
+  thumbnail: string;
 }
 
 export function SubstackPosts() {
@@ -37,7 +39,21 @@ export function SubstackPosts() {
             day: 'numeric'
           });
           
-          return { title, url, date };
+          // Extract thumbnail from enclosure or content
+          let thumbnail = '';
+          const enclosure = item.querySelector('enclosure');
+          if (enclosure && enclosure.getAttribute('type')?.startsWith('image/')) {
+            thumbnail = enclosure.getAttribute('url') || '';
+          } else {
+            // Try to extract from content if no enclosure
+            const content = item.querySelector('content\\:encoded')?.textContent || '';
+            const imgMatch = content.match(/<img.+?src=["'](.+?)["'].*?>/);
+            if (imgMatch && imgMatch[1]) {
+              thumbnail = imgMatch[1];
+            }
+          }
+          
+          return { title, url, date, thumbnail };
         });
         
         setPosts(parsedPosts);
@@ -52,22 +68,68 @@ export function SubstackPosts() {
     fetchPosts();
   }, []);
 
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Recent Posts</h2>
-      
-      {loading && (
-        <div className="text-gray-500">Loading recent posts...</div>
-      )}
-      
-      {error && (
-        <div className="text-red-500">{error}</div>
-      )}
-      
-      <div className="grid gap-4">
-        {posts.map((post, index) => (
-          <Card key={index} className="hover:shadow-md transition-shadow">
-            <CardContent className="p-4">
+  // Render different layouts for first post and the rest
+  const renderMainPost = (post: Post) => (
+    <Card key="main-post" className="hover:shadow-md transition-shadow mb-4">
+      <CardContent className="p-0 overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-1/3 relative">
+            {post.thumbnail ? (
+              <div className="h-48 md:h-full">
+                <AspectRatio ratio={16 / 9} className="h-full">
+                  <img 
+                    src={post.thumbnail} 
+                    alt={post.title}
+                    className="object-cover w-full h-full rounded-t-lg md:rounded-l-lg md:rounded-t-none" 
+                  />
+                </AspectRatio>
+              </div>
+            ) : (
+              <div className="bg-accent h-48 md:h-full flex items-center justify-center rounded-t-lg md:rounded-l-lg md:rounded-t-none">
+                <span className="text-primary/60">No image</span>
+              </div>
+            )}
+          </div>
+          <div className="p-6 md:w-2/3">
+            <h3 className="text-xl font-bold">
+              <a 
+                href={post.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-800 hover:text-primary flex items-start gap-1 group"
+              >
+                {post.title}
+                <ExternalLink className="h-4 w-4 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </h3>
+            <p className="text-sm text-gray-500 mt-3">{post.date}</p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+  const renderSecondaryPosts = (secondaryPosts: Post[]) => (
+    <div className="grid md:grid-cols-2 gap-4">
+      {secondaryPosts.map((post, index) => (
+        <Card key={index} className="hover:shadow-md transition-shadow">
+          <CardContent className="p-0">
+            {post.thumbnail ? (
+              <div className="relative h-48">
+                <AspectRatio ratio={16 / 9}>
+                  <img 
+                    src={post.thumbnail} 
+                    alt={post.title}
+                    className="object-cover w-full h-full rounded-t-lg" 
+                  />
+                </AspectRatio>
+              </div>
+            ) : (
+              <div className="bg-accent h-48 flex items-center justify-center rounded-t-lg">
+                <span className="text-primary/60">No image</span>
+              </div>
+            )}
+            <div className="p-4">
               <h3 className="font-medium">
                 <a 
                   href={post.url} 
@@ -80,10 +142,31 @@ export function SubstackPosts() {
                 </a>
               </h3>
               <p className="text-sm text-gray-500 mt-1">{post.date}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold">Recent Posts</h2>
+      
+      {loading && (
+        <div className="text-gray-500">Loading recent posts...</div>
+      )}
+      
+      {error && (
+        <div className="text-red-500">{error}</div>
+      )}
+      
+      {!loading && !error && posts.length > 0 && (
+        <>
+          {renderMainPost(posts[0])}
+          {renderSecondaryPosts(posts.slice(1))}
+        </>
+      )}
       
       <div className="text-center mt-4">
         <a 
