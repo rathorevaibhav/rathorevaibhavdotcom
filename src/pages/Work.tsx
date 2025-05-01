@@ -39,8 +39,8 @@ const Work = () => {
           <div className="space-y-12">
             {workExperience.map((experience, index) => (
               <div key={experience.year} className="relative group">
-                {/* Timeline dot - fixed for mobile */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 w-6 h-6 rounded-full bg-primary border-4 border-white transition-transform duration-300 group-hover:scale-125" />
+                {/* Timeline dot - centered on mobile */}
+                <div className="absolute left-4 transform -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 top-0 w-6 h-6 rounded-full bg-primary border-4 border-white transition-transform duration-300 group-hover:scale-125" />
                 
                 {/* Content */}
                 <div className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
