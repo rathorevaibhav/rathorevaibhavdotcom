@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { ExternalLink, Menu } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Footer } from './Footer';
 
@@ -18,6 +18,7 @@ const menuItems = [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const isMobile = useIsMobile();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -29,10 +30,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </Link>
             
             {isMobile ? (
-              <Sheet>
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Menu className="h-6 w-6" />
+                  <Button variant="ghost" size="icon" className="relative z-50">
+                    <div className="relative w-6 h-6">
+                      {/* Animated hamburger to X icon */}
+                      <span className={`absolute inset-0 w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-3' : 'top-1.5'}`}></span>
+                      <span className={`absolute inset-0 w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100 top-3'}`}></span>
+                      <span className={`absolute inset-0 w-6 h-0.5 bg-current transform transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-3' : 'top-4.5'}`}></span>
+                    </div>
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="top" className="w-full h-[100dvh]">
@@ -54,6 +60,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                           key={item.title}
                           to={item.path}
                           className="text-2xl font-medium text-gray-600 hover:text-primary transition-colors"
+                          onClick={() => setIsMenuOpen(false)}
                         >
                           {item.title}
                         </Link>
