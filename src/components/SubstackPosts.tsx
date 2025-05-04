@@ -9,6 +9,7 @@ interface Post {
   url: string;
   date: string;
   thumbnail: string;
+  excerpt: string; // Added excerpt field
 }
 
 export function SubstackPosts() {
@@ -53,7 +54,22 @@ export function SubstackPosts() {
             }
           }
           
-          return { title, url, date, thumbnail };
+          // Extract excerpt from content
+          let excerpt = '';
+          const description = item.querySelector('description')?.textContent || '';
+          if (description) {
+            // Strip HTML tags and get plain text
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = description;
+            excerpt = tempDiv.textContent || tempDiv.innerText || '';
+            // Limit to ~100 characters for approximately two lines
+            excerpt = excerpt.substring(0, 120).trim();
+            if (excerpt.length >= 120) {
+              excerpt += '...';
+            }
+          }
+          
+          return { title, url, date, thumbnail, excerpt };
         });
         
         setPosts(parsedPosts);
@@ -68,12 +84,12 @@ export function SubstackPosts() {
     fetchPosts();
   }, []);
 
-  // Render different layouts for first post and the rest
-  const renderMainPost = (post: Post) => (
-    <Card key="main-post" className="hover:shadow-md transition-shadow mb-4">
+  // Render post with consistent layout (image left, content right)
+  const renderPost = (post: Post, isMain: boolean = false) => (
+    <Card className={`hover:shadow-md transition-shadow ${isMain ? 'mb-4' : ''}`}>
       <CardContent className="p-0 overflow-hidden">
         <div className="flex flex-col md:flex-row">
-          <div className="md:w-1/3 relative">
+          <div className={`${isMain ? 'md:w-1/3' : 'md:w-2/5'} relative`}>
             {post.thumbnail ? (
               <div className="h-48 md:h-full">
                 <AspectRatio ratio={16 / 9} className="h-full">
@@ -90,8 +106,8 @@ export function SubstackPosts() {
               </div>
             )}
           </div>
-          <div className="p-6 md:w-2/3">
-            <h3 className="text-xl font-bold">
+          <div className="p-6 md:flex-1">
+            <h3 className={`${isMain ? 'text-xl' : 'text-lg'} font-bold`}>
               <a 
                 href={post.url} 
                 target="_blank" 
@@ -99,54 +115,17 @@ export function SubstackPosts() {
                 className="text-gray-800 hover:text-primary flex items-start gap-1 group"
               >
                 {post.title}
-                <ExternalLink className="h-4 w-4 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ExternalLink className={`${isMain ? 'h-4 w-4' : 'h-3.5 w-3.5'} mt-1 opacity-0 group-hover:opacity-100 transition-opacity`} />
               </a>
             </h3>
+            {post.excerpt && (
+              <p className="text-gray-600 mt-2 line-clamp-2">{post.excerpt}</p>
+            )}
             <p className="text-sm text-gray-500 mt-3">{post.date}</p>
           </div>
         </div>
       </CardContent>
     </Card>
-  );
-
-  const renderSecondaryPosts = (secondaryPosts: Post[]) => (
-    <div className="grid md:grid-cols-2 gap-4">
-      {secondaryPosts.map((post, index) => (
-        <Card key={index} className="hover:shadow-md transition-shadow">
-          <CardContent className="p-0">
-            {post.thumbnail ? (
-              <div className="relative h-48">
-                <AspectRatio ratio={16 / 9}>
-                  <img 
-                    src={post.thumbnail} 
-                    alt={post.title}
-                    className="object-cover w-full h-full rounded-t-lg" 
-                  />
-                </AspectRatio>
-              </div>
-            ) : (
-              <div className="bg-accent h-48 flex items-center justify-center rounded-t-lg">
-                <span className="text-primary/60">No image</span>
-              </div>
-            )}
-            <div className="p-4">
-              <h3 className="font-medium">
-                <a 
-                  href={post.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-800 hover:text-primary flex items-center gap-1 group"
-                >
-                  {post.title}
-                  <ExternalLink className="h-3.5 w-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </h3>
-              <p className="text-sm text-gray-500 mt-1">{post.date}</p>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
   );
 
   return (
@@ -163,8 +142,17 @@ export function SubstackPosts() {
       
       {!loading && !error && posts.length > 0 && (
         <>
-          {renderMainPost(posts[0])}
-          {renderSecondaryPosts(posts.slice(1))}
+          {/* Main post - slightly larger */}
+          {renderPost(posts[0], true)}
+          
+          {/* Secondary posts */}
+          <div className="grid md:grid-cols-2 gap-4">
+            {posts.slice(1).map((post, index) => (
+              <div key={index}>
+                {renderPost(post)}
+              </div>
+            ))}
+          </div>
         </>
       )}
       
