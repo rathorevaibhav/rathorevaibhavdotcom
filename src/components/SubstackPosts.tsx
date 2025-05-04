@@ -95,28 +95,30 @@ export function SubstackPosts() {
     fetchPosts();
   }, []);
 
-  // Render post with consistent layout (image left, content right) for all posts
+  // Render post with responsive layout - stacked for mobile and side-by-side for desktop
   const renderPost = (post: Post) => (
     <Card className="hover:shadow-md transition-shadow mb-4">
       <CardContent className="p-0 overflow-hidden">
         <div className="flex flex-col md:flex-row h-full">
-          <div className="md:w-1/3 relative h-full">
+          {/* Mobile: Image on top, Desktop: Image on left */}
+          <div className="w-full md:w-1/3 relative h-full">
             {post.thumbnail ? (
               <div className="h-48 md:h-full">
                 <AspectRatio ratio={16 / 9} className="h-full">
                   <img 
                     src={post.thumbnail} 
                     alt={post.title}
-                    className="object-cover w-full h-full md:rounded-l-lg rounded-t-lg md:rounded-tr-none" 
+                    className="object-cover w-full h-full rounded-t-lg md:rounded-t-none md:rounded-l-lg" 
                   />
                 </AspectRatio>
               </div>
             ) : (
-              <div className="bg-accent h-48 md:h-full flex items-center justify-center md:rounded-l-lg rounded-t-lg md:rounded-tr-none">
+              <div className="bg-accent h-48 md:h-full flex items-center justify-center rounded-t-lg md:rounded-t-none md:rounded-l-lg">
                 <span className="text-primary/60">No image</span>
               </div>
             )}
           </div>
+          {/* Content section - below thumbnail on mobile, right side on desktop */}
           <div className="p-6 md:flex-1">
             <h3 className="text-xl font-bold">
               <a 
