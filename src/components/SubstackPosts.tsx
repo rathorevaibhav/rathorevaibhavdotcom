@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { ExternalLink } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
@@ -9,7 +9,7 @@ interface Post {
   url: string;
   date: string;
   thumbnail: string;
-  excerpt: string; // Added excerpt field
+  excerpt: string;
 }
 
 export function SubstackPosts() {
@@ -54,7 +54,7 @@ export function SubstackPosts() {
             }
           }
           
-          // Extract excerpt from content
+          // Extract excerpt from content - aim for at least 30 words
           let excerpt = '';
           const description = item.querySelector('description')?.textContent || '';
           if (description) {
@@ -62,9 +62,20 @@ export function SubstackPosts() {
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = description;
             excerpt = tempDiv.textContent || tempDiv.innerText || '';
-            // Limit to ~100 characters for approximately two lines
-            excerpt = excerpt.substring(0, 120).trim();
-            if (excerpt.length >= 120) {
+            
+            // Get approximately 30+ words (around 200-250 characters)
+            const words = excerpt.split(/\s+/);
+            if (words.length > 30) {
+              excerpt = words.slice(0, 30).join(' ');
+              // Find the last complete sentence if possible
+              const lastPeriodIndex = excerpt.lastIndexOf('.');
+              if (lastPeriodIndex > excerpt.length * 0.7) { // If period is in the latter part
+                excerpt = excerpt.substring(0, lastPeriodIndex + 1);
+              } else {
+                excerpt += '...';
+              }
+            } else if (excerpt.length > 0) {
+              // If less than 30 words, use whatever we have
               excerpt += '...';
             }
           }
@@ -84,12 +95,12 @@ export function SubstackPosts() {
     fetchPosts();
   }, []);
 
-  // Render post with consistent layout (image left, content right)
-  const renderPost = (post: Post, isMain: boolean = false) => (
-    <Card className={`hover:shadow-md transition-shadow ${isMain ? 'mb-4' : ''}`}>
+  // Render post with consistent layout (image left, content right) for all posts
+  const renderPost = (post: Post) => (
+    <Card className="hover:shadow-md transition-shadow mb-4">
       <CardContent className="p-0 overflow-hidden">
         <div className="flex flex-col md:flex-row">
-          <div className={`${isMain ? 'md:w-1/3' : 'md:w-2/5'} relative`}>
+          <div className="md:w-1/3 relative">
             {post.thumbnail ? (
               <div className="h-48 md:h-full">
                 <AspectRatio ratio={16 / 9} className="h-full">
@@ -107,7 +118,7 @@ export function SubstackPosts() {
             )}
           </div>
           <div className="p-6 md:flex-1">
-            <h3 className={`${isMain ? 'text-xl' : 'text-lg'} font-bold`}>
+            <h3 className="text-xl font-bold">
               <a 
                 href={post.url} 
                 target="_blank" 
@@ -115,7 +126,7 @@ export function SubstackPosts() {
                 className="text-gray-800 hover:text-primary flex items-start gap-1 group"
               >
                 {post.title}
-                <ExternalLink className={`${isMain ? 'h-4 w-4' : 'h-3.5 w-3.5'} mt-1 opacity-0 group-hover:opacity-100 transition-opacity`} />
+                <ExternalLink className="h-4 w-4 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </h3>
             {post.excerpt && (
@@ -141,19 +152,13 @@ export function SubstackPosts() {
       )}
       
       {!loading && !error && posts.length > 0 && (
-        <>
-          {/* Main post - slightly larger */}
-          {renderPost(posts[0], true)}
-          
-          {/* Secondary posts */}
-          <div className="grid md:grid-cols-2 gap-4">
-            {posts.slice(1).map((post, index) => (
-              <div key={index}>
-                {renderPost(post)}
-              </div>
-            ))}
-          </div>
-        </>
+        <div className="space-y-4">
+          {posts.map((post, index) => (
+            <div key={index}>
+              {renderPost(post)}
+            </div>
+          ))}
+        </div>
       )}
       
       <div className="text-center mt-4">
