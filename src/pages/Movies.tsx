@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -41,6 +41,20 @@ const allTimeMovies = [
 ];
 
 const Movies = () => {
+  // Use useMemo to shuffle the movies array on each render
+  const shuffledMovies = useMemo(() => {
+    // Create a copy of the original array to avoid mutating it
+    const moviesCopy = [...allTimeMovies];
+    
+    // Fisher-Yates shuffle algorithm
+    for (let i = moviesCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [moviesCopy[i], moviesCopy[j]] = [moviesCopy[j], moviesCopy[i]];
+    }
+    
+    return moviesCopy;
+  }, []); // Empty dependency array ensures it runs on every render
+
   return (
     <Layout>
       <div className="max-w-4xl mx-auto space-y-12">
@@ -104,7 +118,7 @@ const Movies = () => {
               <h2 className="text-2xl font-bold">All-Time Favorites</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {allTimeMovies.map((movie) => (
+              {shuffledMovies.map((movie) => (
                 <Card key={movie.title} className="hover:shadow-md transition-shadow h-full">
                   <CardContent className="p-4 flex flex-col h-full">
                     <div className="flex justify-between items-start mb-2">
