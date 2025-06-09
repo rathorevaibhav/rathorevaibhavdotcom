@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Linkedin, Github, Instagram } from 'lucide-react';
+import { ColoredCowIcon } from './ColoredCowIcon';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,6 +37,15 @@ export function Footer() {
               aria-label="Instagram"
             >
               <Instagram className="h-5 w-5" />
+            </a>
+            <a 
+              href="https://coloredcow.cm" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-primary transition-colors"
+              aria-label="ColoredCow"
+            >
+              <ColoredCowIcon className="h-5 w-5" />
             </a>
           </div>
           <div className="text-sm text-gray-500">
