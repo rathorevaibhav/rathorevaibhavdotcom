@@ -11,7 +11,7 @@ const recentMovies = [
     year: 2024,
     director: "Reema Kagti",
     genre: ["Biography", "Comedy", "Drama"],
-    image: "https://m.media-amazon.com/images/M/MV5BYjEzZTk3YjMtNTVmMy00MzFjLWIxMjctNzBhNGIwNWM2MTA5XkEyXkFqcGc@._V1_.jpg"
+    image: "https://images.unsplash.com/photo-1489599558804-2cd60ebacd59?w=400&h=600&fit=crop"
   }
 ];
 
