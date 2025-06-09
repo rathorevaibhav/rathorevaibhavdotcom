@@ -7,15 +7,16 @@ import { Film } from 'lucide-react';
 
 const recentMovies = [
   { 
-    title: "War Dogs",
-    year: 2016,
-    director: "Todd Phillips",
-    genre: ["Comedy", "Crime", "Drama"],
-    image: "https://m.media-amazon.com/images/M/MV5BMjEyNzQ0NzM4MV5BMl5BanBnXkFtZTgwMDI0ODM2OTE@._V1_.jpg"
+    title: "Superboys of Malegaon",
+    year: 2024,
+    director: "Reema Kagti",
+    genre: ["Biography", "Comedy", "Drama"],
+    image: "https://m.media-amazon.com/images/M/MV5BYjEzZTk3YjMtNTVmMy00MzFjLWIxMjctNzBhNGIwNWM2MTA5XkEyXkFqcGc@._V1_.jpg"
   }
 ];
 
 const allTimeMovies = [
+  { title: "War Dogs", year: 2016, genre: ["Comedy", "Crime", "Drama"] },
   { title: "Ready Player One", year: 2018, genre: ["Sci-Fi", "Action", "Adventure"] },
   { title: "Interstellar", year: 2014, genre: ["Sci-Fi", "Adventure", "Drama"] },
   { title: "Top Gun: Maverick", year: 2022, genre: ["Action", "Drama"] },
