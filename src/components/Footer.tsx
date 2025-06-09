@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin, Github, Instagram } from 'lucide-react';
 import { ColoredCowIcon } from './ColoredCowIcon';
@@ -39,7 +38,7 @@ export function Footer() {
               <Instagram className="h-5 w-5" />
             </a>
             <a 
-              href="https://coloredcow.cm" 
+              href="https://coloredcow.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-primary transition-colors"
