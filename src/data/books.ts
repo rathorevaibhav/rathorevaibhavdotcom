@@ -101,5 +101,25 @@ export const mockBooks: Book[] = [
     rating: 5,
     readDate: "December 2022",
     review: "Michael E. Gerber's 'The E-Myth Revisited' shattered many of my misconceptions about entrepreneurship and running a successful business. Through the narrative of a struggling bakery owner, Gerber illustrates the critical difference between working in your business and working on it.\n\nThe book's central insight—that most businesses fail because technically skilled people start businesses without understanding the distinction between being a technician, manager, and entrepreneur—was eye-opening. Gerber's framework for developing business systems that don't rely on the founder's constant presence offers a practical path toward building a sustainable enterprise.\n\nI've applied many concepts from this book, particularly the idea of creating systems and processes as if you were going to franchise your business. This approach has helped me develop more scalable, consistent operations even though I don't intend to franchise. Gerber's emphasis on creating a business that works for you rather than making yourself work for the business continues to guide my strategic decisions."
+  },
+  {
+    id: 11,
+    title: "How to Win Friends and Influence People",
+    author: "Dale Carnegie",
+    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1442726934i/4865.jpg",
+    category: "Self-Improvement",
+    rating: 4,
+    readDate: "January 2025",
+    review: "Dale Carnegie's timeless classic 'How to Win Friends and Influence People' remains remarkably relevant in today's digital age. The fundamental principles of human interaction and communication that Carnegie outlines transcend technological changes and cultural shifts.\n\nWhat I found most valuable was the book's practical approach to understanding human psychology and motivation. Carnegie's techniques for making people feel important, showing genuine interest in others, and handling conflicts gracefully have immediate applicability in both professional and personal contexts.\n\nWhile some of the language and examples feel dated, the core insights about human nature and effective communication remain powerful. The book's emphasis on listening, empathy, and finding common ground has influenced how I approach difficult conversations and relationship building."
+  },
+  {
+    id: 12,
+    title: "The Hard Thing About Hard Things",
+    author: "Ben Horowitz",
+    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386609333i/18176747.jpg",
+    category: "Business",
+    rating: 5,
+    readDate: "February 2025",
+    review: "Ben Horowitz's 'The Hard Thing About Hard Things' offers an unflinchingly honest look at the challenges of building and running a company. Unlike many business books that focus on success stories, Horowitz tackles the difficult decisions and painful moments that every leader faces but few discuss openly.\n\nWhat sets this book apart is Horowitz's willingness to share his mistakes and vulnerabilities alongside his successes. His insights on managing through crisis, making difficult personnel decisions, and maintaining culture during rapid growth come from hard-earned experience at Loudcloud and Opsware.\n\nI particularly appreciated his practical advice on topics like layoffs, CEO psychology, and dealing with wartime vs. peacetime leadership. The book's raw honesty about the emotional toll of leadership and the weight of responsibility that comes with people's livelihoods has given me a more realistic perspective on entrepreneurship and business leadership."
   }
 ];
