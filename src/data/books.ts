@@ -29,7 +29,7 @@ export const mockBooks: Book[] = [
     coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348500214i/157385.jpg",
     category: "Business",
     rating: 4,
-    readDate: "May 2022",
+    readDate: "2024",
     review: "As a sequel to 'The Goal', 'It's Not Luck' extends Goldratt's Theory of Constraints to broader business problems and strategic thinking. The book follows Alex Rogo as he faces new challenges in a corporate environment, applying logical thinking processes to solve complex business problems.\n\nWhat I found most valuable was Goldratt's introduction of the Thinking Processes, especially the Current Reality Tree and Future Reality Tree as tools for analyzing problems and crafting solutions. These frameworks provide a structured approach to breaking down complex situations into manageable components.\n\nWhile not quite as revolutionary as 'The Goal', this book offers practical tools for decision-making and conflict resolution that I've found useful in my professional life. Goldratt's emphasis on win-win solutions and looking beyond apparent conflicts has influenced how I approach difficult business situations."
   },
   {
@@ -39,7 +39,7 @@ export const mockBooks: Book[] = [
     coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347572652i/848514.jpg",
     category: "Project Management",
     rating: 4,
-    readDate: "July 2022",
+    readDate: "2025",
     review: "In 'Critical Chain', Goldratt applies his Theory of Constraints to project management, challenging traditional approaches and offering a more effective alternative. Like his other books, this one uses a narrative format to present sophisticated concepts in an accessible way.\n\nThe book's central insight about how safety margins in individual tasks get wasted and how they should instead be pooled at the project level was eye-opening. Goldratt's analysis of why projects typically run late despite generous time estimates resonated deeply with my experience in software development.\n\nI've implemented several ideas from Critical Chain in my team's workflow, particularly around resource management and buffer planning. The concept of focusing on the critical chain rather than the critical path has helped us deliver more predictably and manage uncertainty better."
   },
   {
@@ -59,7 +59,7 @@ export const mockBooks: Book[] = [
     coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432222358i/71728.jpg",
     category: "Philosophy",
     rating: 5,
-    readDate: "February 2021",
+    readDate: "2025",
     review: "Richard Bach's novella 'Jonathan Livingston Seagull' may be brief, but its impact on my thinking has been profound. Through the story of a seagull who yearns to perfect the art of flight rather than merely foraging for food, Bach crafts a beautiful allegory about pursuing excellence and transcending limitations.\n\nWhat resonated most deeply with me was the book's exploration of how pursuing one's passion often means breaking from convention and facing isolation. Jonathan's journey from outcast to teacher illustrates how mastery not only fulfills the individual but eventually benefits the broader community.\n\nDespite its simplicity, this book contains layers of meaning about self-discovery, perseverance, and enlightenment. I find myself returning to its messages regularly when facing challenges or feeling pressured to conform rather than excel. Bach's prose is elegantly spare, allowing the powerful metaphors to shine through."
   },
   {
@@ -99,7 +99,7 @@ export const mockBooks: Book[] = [
     coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1435673032i/81948.jpg",
     category: "Business",
     rating: 5,
-    readDate: "December 2022",
+    readDate: "2025",
     review: "Michael E. Gerber's 'The E-Myth Revisited' shattered many of my misconceptions about entrepreneurship and running a successful business. Through the narrative of a struggling bakery owner, Gerber illustrates the critical difference between working in your business and working on it.\n\nThe book's central insight—that most businesses fail because technically skilled people start businesses without understanding the distinction between being a technician, manager, and entrepreneur—was eye-opening. Gerber's framework for developing business systems that don't rely on the founder's constant presence offers a practical path toward building a sustainable enterprise.\n\nI've applied many concepts from this book, particularly the idea of creating systems and processes as if you were going to franchise your business. This approach has helped me develop more scalable, consistent operations even though I don't intend to franchise. Gerber's emphasis on creating a business that works for you rather than making yourself work for the business continues to guide my strategic decisions."
   },
   {
@@ -121,5 +121,35 @@ export const mockBooks: Book[] = [
     rating: 5,
     readDate: "February 2025",
     review: "Ben Horowitz's 'The Hard Thing About Hard Things' offers an unflinchingly honest look at the challenges of building and running a company. Unlike many business books that focus on success stories, Horowitz tackles the difficult decisions and painful moments that every leader faces but few discuss openly.\n\nWhat sets this book apart is Horowitz's willingness to share his mistakes and vulnerabilities alongside his successes. His insights on managing through crisis, making difficult personnel decisions, and maintaining culture during rapid growth come from hard-earned experience at Loudcloud and Opsware.\n\nI particularly appreciated his practical advice on topics like layoffs, CEO psychology, and dealing with wartime vs. peacetime leadership. The book's raw honesty about the emotional toll of leadership and the weight of responsibility that comes with people's livelihoods has given me a more realistic perspective on entrepreneurship and business leadership."
+  },
+  {
+    id: 13,
+    title: "The Pragmatic Programmer",
+    author: "David Thomas, Andrew Hunt",
+    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1401432508i/4099.jpg",
+    category: "Programming",
+    rating: 5,
+    readDate: "2021",
+    review: "David Thomas and Andrew Hunt's 'The Pragmatic Programmer' is essential reading for any software developer who wants to improve their craft. The book goes beyond specific technologies to focus on fundamental principles and practices that remain relevant regardless of language or platform.\n\nWhat I found most valuable was the emphasis on thinking critically about programming decisions and developing good habits early in one's career. The authors' practical tips on debugging, testing, and code organization have become integral to my development workflow.\n\nThe book's philosophy of being a pragmatic programmer—balancing perfectionism with practicality, staying curious, and taking responsibility for your work—has shaped how I approach software development. It's one of those rare technical books that focuses as much on the mindset and professional development as it does on technical skills."
+  },
+  {
+    id: 14,
+    title: "Mind Master",
+    author: "Viswanathan Anand",
+    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1580224482i/50358538.jpg",
+    category: "Autobiography",
+    rating: 4,
+    readDate: "2024",
+    review: "Viswanathan Anand's 'Mind Master' offers a fascinating glimpse into the mind of one of the greatest chess players of all time. The book combines personal memoir with insights into the mental aspects of high-level competitive chess, providing both entertainment and practical wisdom.\n\nWhat struck me most was Anand's discussion of how he adapted his playing style and preparation methods throughout different phases of his career. His ability to reinvent himself while maintaining excellence at the highest level offers valuable lessons about continuous learning and adaptation.\n\nAnand's humble and thoughtful approach to describing his achievements makes this more than just a sports biography. His insights on handling pressure, making decisions under time constraints, and maintaining focus during long competitions have applications far beyond chess."
+  },
+  {
+    id: 15,
+    title: "Maverick",
+    author: "Ricardo Semler",
+    coverImage: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1441705746i/32994.jpg",
+    category: "Business",
+    rating: 5,
+    readDate: "2024",
+    review: "Ricardo Semler's 'Maverick' chronicles one of the most radical corporate transformations in business history. Semler's account of how he dismantled traditional hierarchies at Semco and created a truly democratic workplace challenges everything we think we know about organizational management.\n\nWhat makes this book extraordinary is not just the boldness of Semler's vision, but the practical results it achieved. From allowing employees to set their own salaries to eliminating most management positions, the reforms at Semco proved that radical democracy in the workplace can actually improve both employee satisfaction and business performance.\n\nSemler's willingness to question fundamental assumptions about work, authority, and human motivation has influenced my thinking about organizational design and leadership. The book demonstrates that many business practices we take for granted are simply traditions that can be reimagined for better outcomes."
   }
 ];
