@@ -1,7 +1,6 @@
 name: 📋 Task
 description: Create a new task
-title: "[TASK] <title>"
-labels: ["Task", "Needs Triage"]
+title: ""
 body:
 - type: checkboxes
   attributes:
