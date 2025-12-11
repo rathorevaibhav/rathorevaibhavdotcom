@@ -1,6 +1,5 @@
 name: 📋 Task
 description: Create a new task
-title: "[TITLE]"
 body:
 - type: checkboxes
   attributes:
