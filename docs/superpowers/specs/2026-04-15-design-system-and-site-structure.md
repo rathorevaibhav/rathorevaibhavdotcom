@@ -29,7 +29,6 @@ A personal digital garden that doubles as a piece of design craft. The site is a
 
 **Out of scope for initial build:**
 - Book detail pages (`/books/:id`) -- the grid is the experience. Can be added later.
-- Footer -- the glass sidebar/bottom-nav handles all navigation. No footer needed.
 - Dark mode -- light theme only for now.
 
 ---
@@ -200,6 +199,19 @@ Each inner page follows this pattern:
 - Layout: flex, space-between, title+description left, date (Fira Code) right
 - Hover: subtle slide right (2px) + orange glow appears
 
+### Footer
+
+Simple, centered footer at the bottom of every page. Matches the current site's structure:
+
+- Social icon row: LinkedIn, GitHub, Instagram, ColoredCow — Phosphor Duotone icons, 20px
+- Icons: `#888` default, section gradient color on hover (uses the current page's section color)
+- Copyright line below: DM Sans 13px, `#999`
+- Top border: `1px solid var(--border)`
+- Padding: 32px vertical
+- On mobile: same layout, stacks naturally since it's centered
+
+**File:** `src/components/layout/Footer.tsx`
+
 ### Filter Controls
 
 **Year filter pills (Books):**
@@ -307,6 +319,7 @@ src/
 │   ├── layout/
 │   │   ├── Sidebar.tsx          # Glass sidebar (desktop)
 │   │   ├── BottomNav.tsx        # Mobile bottom nav
+│   │   ├── Footer.tsx           # Social links + copyright
 │   │   └── Layout.tsx           # Main layout wrapper
 │   ├── shared/
 │   │   ├── MeshGradient.tsx     # Animated gradient background
