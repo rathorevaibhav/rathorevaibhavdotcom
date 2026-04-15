@@ -324,7 +324,6 @@ src/
 │   ├── shared/
 │   │   ├── MeshGradient.tsx     # Animated gradient background
 │   │   ├── PageHeader.tsx       # Gradient bar + title + subtitle
-│   │   ├── GlassCard.tsx        # Reusable glass card
 │   │   └── GridCard.tsx         # Book/Movie/Music grid item
 │   └── ui/                      # Minimal: only what's actually used
 ├── pages/
