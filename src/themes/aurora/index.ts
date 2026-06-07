@@ -2,7 +2,7 @@ import type { Theme } from "../types";
 import AuroraLayout from "./Layout";
 import Home from "./pages/Home";
 import MusicPlaceholder from "./pages/MusicPlaceholder";
-import Work from "@/pages/Work";
+import Work from "./pages/Work";
 import Books from "@/pages/Books";
 import BookDetail from "@/pages/BookDetail";
 import Movies from "@/pages/Movies";
