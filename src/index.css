@@ -47,14 +47,21 @@
     }
   }
 
-  .instrument-svg .outline { fill: #fbfcff; stroke: hsl(var(--primary)/.75); stroke-width: 2.4; stroke-linejoin: round; }
+  .instrument-svg .edge { fill: #fbfcff; stroke: hsl(var(--primary)/.75); stroke-width: 2.4; stroke-linejoin: round; }
+  .instrument-svg .fb { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.75); stroke-width: 1.8; }
+  .instrument-svg .fret { stroke: hsl(var(--primary)/.22); stroke-width: 1.1; }
+  .instrument-svg .nut { stroke: hsl(var(--primary)/.8); stroke-width: 2.6; stroke-linecap: round; }
+  .instrument-svg .slot { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.6); stroke-width: 1.2; }
+  .instrument-svg .peg { fill: #ffffff; stroke: hsl(var(--primary)/.7); stroke-width: 1.4; }
+  .instrument-svg .tail { fill: hsl(var(--accent)); stroke: hsl(var(--primary)/.7); stroke-width: 1.4; }
+  .instrument-svg .tailstr { stroke: hsl(var(--glow)); stroke-width: 1.2; }
   .instrument-svg .hole { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.75); stroke-width: 2; }
   .instrument-svg .rosette { fill: none; stroke: hsl(var(--glow)/.6); stroke-width: 2.4; }
   .instrument-svg .bridge { fill: hsl(var(--accent)); stroke: hsl(var(--primary)/.7); stroke-width: 1.5; }
-  .instrument-svg .vis { stroke: hsl(var(--glow)); stroke-width: 1.9; transition: stroke .5s ease; }
+  .instrument-svg .vis { stroke: hsl(var(--glow)); stroke-width: 1.9; transition: stroke .5s ease; pointer-events: none; }
   .instrument-svg [data-hit]:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 2px; }
   .instrument-svg .string.pluck .vis, .instrument-svg .string.trem .vis { stroke: hsl(var(--primary)); }
-  .instrument-svg .draw { stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 1.8s ease forwards; }
+  .instrument-svg .draw { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: draw 1.8s ease forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
   .instrument-svg .string.pluck { animation: pluck .5s ease-out; }
   .instrument-svg .string.trem { animation: trem .1s linear infinite; }
