@@ -1,4 +1,5 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Outlet, useLocation, Link, NavLink } from "react-router-dom";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Linkedin, Github, Instagram, ExternalLink, Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -28,6 +29,25 @@ function NavItems({ onNavigate }: { onNavigate?: () => void }) {
         )
       )}
     </>
+  );
+}
+
+function RouteFade() {
+  const location = useLocation();
+  const reduced = useReducedMotion();
+  if (reduced) return <Outlet />;
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.28, ease: [0.2, 0.7, 0.2, 1] }}
+      >
+        <Outlet />
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
@@ -61,7 +81,9 @@ export default function AuroraLayout() {
           </Container>
         </header>
 
-        <main className="flex-1"><Outlet /></main>
+        <main className="flex-1">
+          <RouteFade />
+        </main>
 
         <footer className="mt-24 border-t border-border py-10">
           <Container className="flex flex-col items-center gap-4">
