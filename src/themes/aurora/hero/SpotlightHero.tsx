@@ -4,9 +4,13 @@ import { useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Container } from "../components/Container";
 import { ErrorBoundary } from "../components/ErrorBoundary";
-import { profile } from "@/content";
+import { profile, socialLinks } from "@/content";
 
 const OrbScene = lazy(() => import("./OrbScene"));
+
+const githubUrl =
+  socialLinks.find((link) => link.icon === "github")?.href ??
+  "https://github.com/rathorevaibhav";
 
 export function SpotlightHero() {
   const reduced = useReducedMotion();
@@ -27,7 +31,7 @@ export function SpotlightHero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild className="rounded-full px-6"><Link to="/work">View my work</Link></Button>
             <Button asChild variant="outline" className="rounded-full px-6">
-              <a href="https://github.com/rathorevaibhav" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             </Button>
           </div>
         </div>
