@@ -26,3 +26,21 @@ if (typeof globalThis !== "undefined" && !("ResizeObserver" in globalThis)) {
     disconnect() {}
   } as typeof ResizeObserver;
 }
+
+// jsdom does not implement IntersectionObserver; provide a no-op so components
+// that observe viewport entry (e.g. framer-motion's whileInView in Reveal)
+// don't throw in tests.
+if (typeof globalThis !== "undefined" && !("IntersectionObserver" in globalThis)) {
+  globalThis.IntersectionObserver = class {
+    readonly root = null;
+    readonly rootMargin = "";
+    readonly thresholds: ReadonlyArray<number> = [];
+    constructor() {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords(): IntersectionObserverEntry[] {
+      return [];
+    }
+  } as unknown as typeof IntersectionObserver;
+}
