@@ -57,6 +57,10 @@ export function PlayableInstrument({ config }: { config: InstrumentConfig }) {
         return (
           <line key={`hit-${i}`} data-hit x1={cx} y1={y1 - 8} x2={cx} y2={y2 + 8}
             stroke="transparent" strokeWidth={bw} style={{ cursor: "pointer" }}
+            role="button"
+            tabIndex={0}
+            aria-label={`Pluck ${config.id} string ${i + 1}`}
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pluck(i); } }}
             onPointerEnter={() => pluck(i)}
             onPointerDown={() => { pluck(i); if (s.trem) startTrem(i); }}
             onPointerUp={() => stopTrem(i)}
