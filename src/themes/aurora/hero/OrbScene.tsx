@@ -21,7 +21,7 @@ function Orb() {
       <pointLight ref={light} position={[2, 2, 3]} intensity={30} distance={18} color="#aab6ff" />
       <mesh ref={mesh}>
         <sphereGeometry args={[1.25, 64, 64]} />
-        <meshStandardMaterial color="#e4e8ff" metalness={0.55} roughness={0.18} envMapIntensity={1.1} />
+        <meshPhysicalMaterial color="#e9ecff" metalness={0.35} roughness={0.12} clearcoat={1} clearcoatRoughness={0.15} envMapIntensity={1.2} />
       </mesh>
     </group>
   );
