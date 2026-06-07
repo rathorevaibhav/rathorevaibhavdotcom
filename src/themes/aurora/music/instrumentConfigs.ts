@@ -23,7 +23,7 @@ export const GUITAR: InstrumentConfig = {
     { xs: [64], freq: 82.41 }, { xs: [86], freq: 110.0 }, { xs: [108], freq: 146.83 },
     { xs: [130], freq: 196.0 }, { xs: [152], freq: 246.94 }, { xs: [174], freq: 329.63 },
   ],
-  stringY: [46, 384], hit: { min: 78, max: 122 },
+  stringY: [46, 384], hit: { min: 53, max: 185 },
 };
 
 export const MANDOLIN: InstrumentConfig = {
@@ -40,5 +40,5 @@ export const MANDOLIN: InstrumentConfig = {
     { xs: [128.5, 135.5], freq: 440.0, bright: true, trem: true },
     { xs: [152.5, 159.5], freq: 659.25, bright: true, trem: true },
   ],
-  stringY: [46, 358], hit: { min: 86, max: 114 },
+  stringY: [46, 358], hit: { min: 72, max: 168 },
 };
