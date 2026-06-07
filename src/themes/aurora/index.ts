@@ -5,7 +5,7 @@ import MusicPlaceholder from "./pages/MusicPlaceholder";
 import Work from "./pages/Work";
 import Books from "./pages/Books";
 import BookDetail from "./pages/BookDetail";
-import Movies from "@/pages/Movies";
+import Movies from "./pages/Movies";
 import NotFound from "@/pages/NotFound";
 
 const aurora: Theme = {
