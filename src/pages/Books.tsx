@@ -1,6 +1,5 @@
 
 import { useState, useMemo } from "react";
-import { Layout } from "@/components/Layout";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BookCard } from "@/components/BookCard";
@@ -50,7 +49,7 @@ const Books = () => {
   }, [searchQuery, selectedCategory, selectedYear]);
 
   return (
-    <Layout>
+    <>
       <div className="max-w-7xl mx-auto sm:px-6 xl:px-8">
         <h1 className="text-4xl font-bold mb-8">Books I've Read</h1>
         
@@ -121,7 +120,7 @@ const Books = () => {
           </div>
         )}
       </div>
-    </Layout>
+    </>
   );
 };
 

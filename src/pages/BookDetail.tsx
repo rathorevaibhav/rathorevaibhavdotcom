@@ -1,6 +1,5 @@
 
 import { useParams, Link } from "react-router-dom";
-import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { StarRating } from "@/components/StarRating";
 import { mockBooks } from "@/data/books";
@@ -12,7 +11,7 @@ const BookDetail = () => {
 
   if (!book) {
     return (
-      <Layout>
+      <>
         <div className="max-w-3xl mx-auto text-center py-16">
           <h1 className="text-2xl font-bold mb-4">Book Not Found</h1>
           <p className="mb-8">Sorry, we couldn't find the book you're looking for.</p>
@@ -20,12 +19,12 @@ const BookDetail = () => {
             <Button>Return to Books</Button>
           </Link>
         </div>
-      </Layout>
+      </>
     );
   }
 
   return (
-    <Layout>
+    <>
       <div className="max-w-5xl mx-auto">
         <Link to="/books" className="inline-flex items-center text-primary hover:text-primary/80 mb-8">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -74,7 +73,7 @@ const BookDetail = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

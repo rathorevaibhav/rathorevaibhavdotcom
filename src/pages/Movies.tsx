@@ -1,6 +1,5 @@
 
 import React, { useMemo } from 'react';
-import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Film } from 'lucide-react';
@@ -57,7 +56,7 @@ const Movies = () => {
   }, []); // Empty dependency array ensures it runs on every render
 
   return (
-    <Layout>
+    <>
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Hero Section with Intro */}
         <section className="space-y-4">
@@ -138,7 +137,7 @@ const Movies = () => {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   );
 };
 

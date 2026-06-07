@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Layout } from '@/components/Layout';
 
 const workExperience = [
   {
@@ -23,7 +22,7 @@ const workExperience = [
 
 const Work = () => {
   return (
-    <Layout>
+    <>
       <div className="max-w-4xl mx-auto space-y-8">
         <section className="space-y-4">
           <h1 className="text-4xl font-bold text-primary">My Work</h1>
@@ -66,7 +65,7 @@ const Work = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
