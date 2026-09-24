@@ -1,0 +1,10 @@
+import { mockBooks } from "@/data/books";
+export const books = mockBooks;
+export { profile } from "./profile";
+export { navLinks, socialLinks } from "./links";
+export { hobbies } from "./hobbies";
+export { interests } from "./interests";
+export { workEntries } from "./work";
+export { movies } from "./movies";
+export { instruments, musicFavorites } from "./music";
+export * from "./types";

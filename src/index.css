@@ -1,40 +1,70 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262 31% 50%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 262 31% 90%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262 31% 50%;
-    --radius: 0.5rem;
-  }
-}
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    /* Aurora — light-first. HSL triples (no hsl() wrapper) for shadcn compatibility. */
+    --background: 0 0% 100%;           /* #FFFFFF */
+    --foreground: 231 56% 12%;         /* #0D1230 ink */
+    --surface: 226 50% 97%;            /* #F4F6FB */
+    --surface-2: 224 52% 95%;          /* #EAEEF9 */
+    --card: 0 0% 100%;
+    --card-foreground: 231 56% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 231 56% 12%;
+    --primary: 230 100% 62%;           /* #3B5BFF indigo accent */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 226 50% 97%;
+    --secondary-foreground: 231 56% 12%;
+    --muted: 226 50% 97%;
+    --muted-foreground: 233 16% 41%;   /* #55597A ink-soft */
+    --accent: 231 100% 93%;            /* #DFE4FF tint */
+    --accent-foreground: 231 56% 12%;
+    --glow: 231 100% 75%;              /* #7D8BFF periwinkle glow */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 228 30% 92%;             /* #E6E8F0 hairline */
+    --input: 228 30% 92%;
+    --ring: 230 100% 62%;
+    --radius: 1rem;
   }
+
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
+
+  /* Honor reduced motion globally */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  .instrument-svg .edge { fill: #fbfcff; stroke: hsl(var(--primary)/.75); stroke-width: 2.4; stroke-linejoin: round; }
+  .instrument-svg .fb { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.75); stroke-width: 1.8; }
+  .instrument-svg .fret { stroke: hsl(var(--primary)/.22); stroke-width: 1.1; }
+  .instrument-svg .nut { stroke: hsl(var(--primary)/.8); stroke-width: 2.6; stroke-linecap: round; }
+  .instrument-svg .slot { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.6); stroke-width: 1.2; }
+  .instrument-svg .peg { fill: #ffffff; stroke: hsl(var(--primary)/.7); stroke-width: 1.4; }
+  .instrument-svg .tail { fill: hsl(var(--accent)); stroke: hsl(var(--primary)/.7); stroke-width: 1.4; }
+  .instrument-svg .tailstr { stroke: hsl(var(--glow)); stroke-width: 1.2; }
+  .instrument-svg .hole { fill: hsl(var(--surface-2)); stroke: hsl(var(--primary)/.75); stroke-width: 2; }
+  .instrument-svg .rosette { fill: none; stroke: hsl(var(--glow)/.6); stroke-width: 2.4; }
+  .instrument-svg .bridge { fill: hsl(var(--accent)); stroke: hsl(var(--primary)/.7); stroke-width: 1.5; }
+  .instrument-svg .vis { stroke: hsl(var(--glow)); stroke-width: 1.9; transition: stroke .5s ease; pointer-events: none; }
+  .instrument-svg [data-hit]:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 2px; }
+  .instrument-svg .string.pluck .vis, .instrument-svg .string.trem .vis { stroke: hsl(var(--primary)); }
+  .instrument-svg .draw { stroke-dasharray: 3000; stroke-dashoffset: 3000; animation: draw 1.8s ease forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .instrument-svg .string.pluck { animation: pluck .5s ease-out; }
+  .instrument-svg .string.trem { animation: trem .1s linear infinite; }
+  @keyframes pluck { 0%{transform:translateX(0)} 15%{transform:translateX(2.6px)} 38%{transform:translateX(-2px)} 60%{transform:translateX(1.3px)} 80%{transform:translateX(-.7px)} 100%{transform:translateX(0)} }
+  @keyframes trem { 0%{transform:translateX(1.8px)} 50%{transform:translateX(-1.8px)} 100%{transform:translateX(1.8px)} }
 }
